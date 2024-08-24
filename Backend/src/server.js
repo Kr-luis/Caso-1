@@ -2,6 +2,11 @@ import express from "express"
 import doteenv from "dotenv"
 import cors from "cors"
 
+import routerusuario from "./routers/usuarios_routers.js"
+// import routermatricula from "./routers/matriculas_routers_routers.js"
+// import routermateria from "./routers/materias_routers_routers.js"
+// import routerestudiante from "./routers/estudiantes_routers_routers.js"
+
 // Inicializar
 const app = express()
 doteenv.config()
@@ -20,6 +25,11 @@ app.use(express.json())
 app.get("/", (req, res) => {
     res.send("Servidor levantado")
 })
+
+app.use("/caso1", routerusuario)
+// app.use("/caso1", )
+// app.use("/caso1", )
+// app.use("/caso1", )
 
 // exportar 
 
