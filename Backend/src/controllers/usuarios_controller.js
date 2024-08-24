@@ -9,11 +9,11 @@ const registro = async (req,res)=>{
     const {nombre, apellido, email,password} = req.body
     // Validaciones
     if (Object.values(req.body).includes("")) return res.status(400).json({msg:"Lo sentimos, debes llenar todos los campos"})
-    const regex = /^[a-zA-ZÀ-ÿ\s]+$/; // Permite letras, espacios y acentos
-    if (!regex.test(nombre)) {
+    const permitido = /^[a-zA-ZÀ-ÿ\s]+$/; // Permite letras, espacios y acentos
+    if (!permitido.test(nombre)) {
         return res.status(400).json({ msg: "El nombre solo puede contener letras y espacios" });
     }
-    if (!regex.test(apellido)) {
+    if (!permitido.test(apellido)) {
         return res.status(400).json({ msg: "El apellido solo puede contener letras y espacios" });
     }
     const verificarEmailBDD = await Usuario.findOne({email})
