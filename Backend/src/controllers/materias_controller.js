@@ -37,6 +37,13 @@ const VerMaterias = async (req, res) => {
     }
 };
 
+const detalleMateria = async(req,res)=>{
+    const {id} = req.params
+    if( !mongoose.Types.ObjectId.isValid(id) ) return res.status(404).json({msg:`Lo sentimos, no existe esta materia`});
+    const materia = await Materias.findById(id).select("-createdAt -updatedAt -__v")
+    res.status(200).json(materia)
+}
+
 const ActualizarMateria = async (req,res) => {
     // Solicitud
     const {id} = req.params
@@ -62,5 +69,6 @@ export{
     CrearMateria,
     VerMaterias,
     ActualizarMateria,
-    EliminarMateria
+    EliminarMateria,
+    detalleMateria
 }

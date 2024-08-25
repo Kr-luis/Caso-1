@@ -15,7 +15,7 @@ const MatriculaSchema = new Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"Estudiante"
     },
-    id_materia:[{
+    id_materias:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Materia"
     }]

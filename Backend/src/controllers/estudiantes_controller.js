@@ -40,6 +40,14 @@ const VerEstudiante = async (req,res) => {
     }
 }
 
+const detalleEstudiante = async(req,res)=>{
+    const {id} = req.params
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({msg:`Lo sentimos, no se encuentra registrado el estudiante`});
+    const estudiante = await Estudiantes.findById(id).select("-createdAt -updatedAt -__v")
+    res.status(200).json(estudiante)
+}
+
+
 const ActualizarEstudiante = async (req,res) => {
     // Solicitud
     const {id} = req.params
@@ -67,5 +75,6 @@ export{
     CrearEstudiante,
     VerEstudiante,
     ActualizarEstudiante,
-    EliminarEstudiante
+    EliminarEstudiante,
+    detalleEstudiante
 }

@@ -3,7 +3,7 @@ import doteenv from "dotenv"
 import cors from "cors"
 
 import routerusuario from "./routers/usuarios_routers.js"
-// import routermatricula from "./routers/matriculas_routers_routers.js"
+import routermatricula from "./routers/matriculas_routers.js"
 import routermateria from "./routers/materias_routers.js"
 import routerestudiante from "./routers/estudiantes_routers.js"
 
@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
 app.use("/caso1", routerusuario)
 app.use("/caso1", routermateria)
 app.use("/caso1", routerestudiante)
-// app.use("/caso1", )
+app.use("/caso1", routermatricula)
 
 // exportar 
 
