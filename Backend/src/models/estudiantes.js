@@ -16,10 +16,10 @@ const EstudianteSchema = new Schema({
         type:String,
         require:true,
         trim:true,
-        maxlenght:15
+        maxlenght:10
     },
     fecha_nacimiento:{
-        type:String,
+        type:Date,
         require:true,
         maxlenght:50
     },
@@ -36,7 +36,7 @@ const EstudianteSchema = new Schema({
     telefono:{
         type:String,
         require:true,
-        maxlenght:20
+        maxlenght:10
     },
     email:{
         type:String,

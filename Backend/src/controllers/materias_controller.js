@@ -30,7 +30,7 @@ const CrearMateria = async (req,res) => {
 
 const VerMaterias = async (req, res) => {
     try {
-        const materias = await Materias.find().select("-salida -createdAt -updatedAt -__v");
+        const materias = await Materias.find().select("-createdAt -updatedAt -__v");
         res.json(materias);
     } catch (error) {
         res.status(500).json({ message: "Error al obtener las materias", error });
@@ -52,7 +52,9 @@ const EliminarMateria = async (req,res) => {
     const {id} = req.params
     // Validaciones
     if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({msg:"Lo sentimos no existe o no se encontró esa materia"})
+    // BDD
     await Materias.findByIdAndDelete(req.params.id)
+    // Respuesta
     res.status(200).json({msg:"La materia se elimino correctamente"})
 }
 
