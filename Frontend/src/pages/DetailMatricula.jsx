@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom'; // Importar useNavigate
 import { FiArrowLeft } from 'react-icons/fi';
 import '../styles/Matriculas.css';
 
 const DetailMatricula = () => {
     const [matricula, setMatricula] = useState(null);
     const { id } = useParams();
+    const navigate = useNavigate(); // Definir useNavigate para manejar la navegación
 
     useEffect(() => {
         const fetchMatricula = async () => {
@@ -25,8 +26,9 @@ const DetailMatricula = () => {
 
     return (
         <div className="contenedor-matriculas">
-            <button className="btn-regresar">
+            <button className="btn-regresar" onClick={() => navigate(-1)}>
                 <FiArrowLeft className="icono-flecha" />
+                Regresar
             </button>
             <h2 className="titulo">Detalles de la Matrícula</h2>
             <div className="detalle">
