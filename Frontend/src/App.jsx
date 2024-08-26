@@ -1,6 +1,5 @@
 import './App.css'
 import { PaginaInicial } from './pages/PaginaInicial.jsx'
-// import { Productos } from './pages/Productos.jsx'
 import Ingresar from './pages/Ingresar.jsx'
 import { Registrar } from './pages/Registrar.jsx'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
@@ -14,20 +13,12 @@ import CreateEstudiante from './pages/CreateEstudiante.jsx';
 import ListEstudiantes from './pages/ListEstudiantes.jsx';
 import EditEstudiante from './pages/EditEstudiante.jsx';
 import DetailEstudiante from './pages/DetailEstudiante';
-// import Forgot from './pages/Forgot.jsx'
-// import { NoEncontrada } from './pages/NoEncontrada.jsx';
-// import { Confirmar } from './pages/ConfirmarEmail';
-// import { Confirmartienda } from './pages/confirmartienda.jsx';
-// import Restablecer from './pages/Restablecer';
-// import Listar from './pages/Listar.jsx'
-// import Crear from './pages/Crear.jsx'
-// import BuscarProducto from './pages/BuscarProducto.jsx'
-import Dashboard from './layout/Dashboard.jsx'
-// import Listartienda from './pages/Listartienda.jsx'
-// import Confirmacion_registro_tienda from './pages/Confirmacion_registro_tienda.jsx'
-// import CrearProducto from './pages/CrearProductos.jsx'
-// import AdministrarTienda  from './pages/AdministrarTienda.jsx'
-// import AdministrarProducto from './pages/AdministrarProducto.jsx'
+import CreateMatricula from './pages/CreateMatricula.jsx';
+import DetailMatricula from './pages/DetailMatricula.jsx';
+import EditMatricula from './pages/EditMatricula.jsx';
+import ListMatriculas from './pages/ListMatriculas.jsx';
+import Dashboard from './layout/Dashboard.jsx';
+
 function App() {
   return (
 
@@ -38,12 +29,7 @@ function App() {
             <Route path='/' element={<Auth/>}>
             <Route path='ingresar' element={<Ingresar/>}/>
             <Route path='registrar' element={<Registrar/>}/>
-            {/* <Route path='usuario/confirmar/:token' element={<Confirmar/>}/> */}
-            {/* <Route path='/confirmartienda/:tokentienda' element={<Confirmartienda/>}/> */}
-            {/* <Route path='forgot/:id' element={<Forgot/>}/> */}
-            {/* <Route path='/usuario/recuperar-password/:token' element={<Restablecer />} /> */}
             <Route path='dashboard' element={<Dashboard />} />
-            {/* <Route path='/productos' element={<Productos/>}/> */}
             <Route path='dashboard/materias' element={<Materias />} />
             <Route path='materias-registradas' element={<MateriasRegistradas />} />
             <Route path='editar-materia/:id' element={<EditarMateria />} />
@@ -51,14 +37,10 @@ function App() {
             <Route path="estudiante/editar/:id" element={<EditEstudiante />} />
             <Route path="estudiantes/detalle/:id" element={<DetailEstudiante />} />
             <Route path="estudiantes" element={<ListEstudiantes />} /> 
-            {/* <Route path='dashboard/crear' element={<Crear/>} /> */}
-            {/* <Route path='dashboard/listartienda' element={<Listartienda/>} /> */}
-            {/* <Route path='dashboard/buscar' element={<BuscarProducto/>} /> */}
-            {/* <Route path='dashboard/crearproducto' element={<CrearProducto/>} /> */}
-            {/* <Route path='dashboard/administrartienda' element={<AdministrarTienda/>} /> */}
-            {/* <Route path='dashboard/actualizarproducto' element={<AdministrarProducto/>} /> */}
-
-            {/* <Route path='*' element={<NoEncontrada />} /> */}
+            <Route path="dashboard/matriculas" element={<CreateMatricula />} />
+            <Route path="matricula/editar/:id" element={<EditMatricula />} />
+            <Route path="matricula/detalle/:id" element={<DetailMatricula />} />
+            <Route path="matriculas" element={<ListMatriculas />} /> 
         </Route>
         </Routes>
     </AuthProvider>

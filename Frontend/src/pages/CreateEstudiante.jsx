@@ -16,6 +16,7 @@ const CreateEstudiante = () => {
   const [mensaje, setMensaje] = useState('');
   const navigate = useNavigate();
 
+
   const crearEstudiante = async (e) => {
     e.preventDefault();
     try {
