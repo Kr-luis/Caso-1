@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import '../styles/Dashboard.css';
@@ -7,14 +7,21 @@ import estudiantes from '../assets/estudiantes.webp';
 import materias from '../assets/materias.jpg';
 
 const Dashboard = () => {
-    const [propietario, setPropietario] = useState(null);
+    const [idUsuario, setIdUsuario] = useState(null);
+    const [email, setEmail] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
-        const propietarioLocalStorage = localStorage.getItem('propietario');
-        const token = localStorage.getItem('token');
-        setPropietario(propietarioLocalStorage === 'true');
-    }, []);
+        const idUsuarioLocalStorage = localStorage.getItem('id_usuario');
+        const emailLocalStorage = localStorage.getItem('email');
+
+        if (!idUsuarioLocalStorage || !emailLocalStorage) {
+            navigate('/ingresar'); // Redirige al login si id_usuario o email están vacíos
+        } else {
+            setIdUsuario(idUsuarioLocalStorage);
+            setEmail(emailLocalStorage);
+        }
+    }, [navigate]);
 
     return (
         <div className="dashboard-container">

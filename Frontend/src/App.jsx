@@ -7,6 +7,13 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import { AuthProvider } from '../context/AuthProvider.jsx'
 import Auth from './layout/Auth'
 import { PrivateRoute } from './routes/PrivateRoute.jsx'
+import Materias from './pages/Materias.jsx'
+import MateriasRegistradas from './pages/MateriasRegistradas.jsx'
+import EditarMateria from './pages/EditarMateria.jsx'
+import CreateEstudiante from './pages/CreateEstudiante.jsx';
+import ListEstudiantes from './pages/ListEstudiantes.jsx';
+import EditEstudiante from './pages/EditEstudiante.jsx';
+import DetailEstudiante from './pages/DetailEstudiante';
 // import Forgot from './pages/Forgot.jsx'
 // import { NoEncontrada } from './pages/NoEncontrada.jsx';
 // import { Confirmar } from './pages/ConfirmarEmail';
@@ -37,8 +44,13 @@ function App() {
             {/* <Route path='/usuario/recuperar-password/:token' element={<Restablecer />} /> */}
             <Route path='dashboard' element={<Dashboard />} />
             {/* <Route path='/productos' element={<Productos/>}/> */}
-            {/* <Route path='dashboard/listar' element={<Listar />} /> */}
-            {/* <Route path='dashboard/confirmacion' element={<Confirmacion_registro_tienda />} /> */}
+            <Route path='dashboard/materias' element={<Materias />} />
+            <Route path='materias-registradas' element={<MateriasRegistradas />} />
+            <Route path='editar-materia/:id' element={<EditarMateria />} />
+            <Route path="dashboard/estudiantes" element={<CreateEstudiante />} />
+            <Route path="estudiante/editar/:id" element={<EditEstudiante />} />
+            <Route path="estudiantes/detalle/:id" element={<DetailEstudiante />} />
+            <Route path="estudiantes" element={<ListEstudiantes />} /> 
             {/* <Route path='dashboard/crear' element={<Crear/>} /> */}
             {/* <Route path='dashboard/listartienda' element={<Listartienda/>} /> */}
             {/* <Route path='dashboard/buscar' element={<BuscarProducto/>} /> */}

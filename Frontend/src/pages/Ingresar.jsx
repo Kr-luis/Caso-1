@@ -26,9 +26,7 @@ const Ingresar = () => {
         try {
             const url = `${import.meta.env.VITE_BACKEND_URL}/caso1/usuario/login`;
             const { data } = await axios.post(url, form); // Desestructurado para mejor legibilidad
-            localStorage.setItem('token', data.token);
             localStorage.setItem('id_usuario', data._id);
-            localStorage.setItem('propietario', data.propietario);
             localStorage.setItem('email', data.email);
             setAuth(data);
 
