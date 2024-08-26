@@ -1,19 +1,21 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowLeft } from 'react-icons/fa'; // Importa el ícono de flecha
-import Swal from 'sweetalert2'; // Importa SweetAlert2
+import { FaArrowLeft } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 import '../styles/Registrar.css';
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Importamos los íconos de ojo
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 export const Registrar = () => {
     const [form, setForm] = useState({
+        nombre: "",
+        apellido: "",
         email: "",
         password: "",
         confirmPassword: ""
     });
-    const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar contraseña
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Estado para mostrar/ocultar confirmación de contraseña
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     const handleChange = (e) => {
         setForm({
@@ -33,7 +35,20 @@ export const Registrar = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Validación básica
+        if (Object.values(form).includes("")) {
+            Swal.fire({
+                title: 'Error',
+                text: 'Lo sentimos, debes llenar todos los campos',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                customClass: {
+                    title: 'custom-title',
+                    content: 'custom-content'
+                }
+            });
+            return;
+        }
+
         if (form.password !== form.confirmPassword) {
             Swal.fire({
                 title: 'Error',
@@ -47,6 +62,7 @@ export const Registrar = () => {
             });
             return;
         }
+
         if (form.password.length < 8) {
             Swal.fire({
                 title: 'Error',
@@ -62,8 +78,10 @@ export const Registrar = () => {
         }
 
         try {
-            const url = `${import.meta.env.VITE_BACKEND_URL}/usuario/registro`;
+            const url = `${import.meta.env.VITE_BACKEND_URL}/caso1/usuario/registro`;
             const respuesta = await axios.post(url, {
+                nombre: form.nombre,
+                apellido: form.apellido,
                 email: form.email,
                 password: form.password,
             });
@@ -78,14 +96,13 @@ export const Registrar = () => {
                     content: 'custom-content'
                 }
             }).then(() => {
-                // Redirige al usuario después del registro exitoso, si es necesario
-                // Puedes redirigir a otra página aquí si lo deseas
-            });
-
-            setForm({
-                email: "",
-                password: "",
-                confirmPassword: ""
+                setForm({
+                    nombre: "",
+                    apellido: "",
+                    email: "",
+                    password: "",
+                    confirmPassword: ""
+                });
             });
         } catch (error) {
             Swal.fire({
@@ -111,12 +128,32 @@ export const Registrar = () => {
                     <div className="form-section">
                         <form onSubmit={handleSubmit}>
                             <div className="input-group">
+                                <label>Nombre</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="Ingresa tu Nombre" 
+                                    name="nombre"
+                                    value={form.nombre} 
+                                    onChange={handleChange}
+                                />
+                            </div>
+                            <div className="input-group">
+                                <label>Apellido</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="Ingresa tu Apellido" 
+                                    name="apellido"
+                                    value={form.apellido} 
+                                    onChange={handleChange}
+                                />
+                            </div>
+                            <div className="input-group">
                                 <label>Correo Electrónico</label>
                                 <input 
                                     type="email" 
                                     placeholder="Ingresa tu Correo Electrónico" 
-                                    name='email'
-                                    value={form.email || ""} 
+                                    name="email"
+                                    value={form.email} 
                                     onChange={handleChange}
                                 />
                             </div>
@@ -126,8 +163,8 @@ export const Registrar = () => {
                                     <input 
                                         type={showPassword ? "text" : "password"} 
                                         placeholder="* * * * * * * *" 
-                                        name='password'
-                                        value={form.password || ""} 
+                                        name="password"
+                                        value={form.password} 
                                         onChange={handleChange}
                                     />
                                     <span onClick={toggleShowPassword}>
@@ -141,8 +178,8 @@ export const Registrar = () => {
                                     <input 
                                         type={showConfirmPassword ? "text" : "password"} 
                                         placeholder="* * * * * * * *" 
-                                        name='confirmPassword'
-                                        value={form.confirmPassword || ""} 
+                                        name="confirmPassword"
+                                        value={form.confirmPassword} 
                                         onChange={handleChange}
                                     />
                                     <span onClick={toggleShowConfirmPassword}>
@@ -160,7 +197,7 @@ export const Registrar = () => {
                 </div>
                 <div className="home-icon">
                     <Link to="/"> 
-                        <FaArrowLeft className="back-arrow" /> {/* Aquí se usa el ícono de flecha */}
+                        <FaArrowLeft className="back-arrow" />
                     </Link>
                 </div>
             </div>

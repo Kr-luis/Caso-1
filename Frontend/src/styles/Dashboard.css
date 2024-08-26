@@ -1,0 +1,115 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: -20px -10px;
+    background-color: #0b0b0b00;
+    color: #050505;
+    width: 100%;
+    position: fixed; /* Fija el header en la parte superior */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que el header esté encima del contenido */
+}
+
+.back-arrow {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.header-title {
+    flex: 1;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: #007bff;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #0056b3;
+}
+
+.dashboard-options {
+    display: flex;
+    justify-content: center; /* Centra las opciones horizontalmente */
+    gap: 1rem; /* Espacio entre las opciones */
+    width: 100%; /* Asegura que las opciones ocupen todo el ancho disponible */
+    max-width: 1200px; /* Ajusta el ancho máximo si es necesario */
+    padding: 0.5rem; /* Ajusta el padding interno para hacer el área más compacta */
+    background-color: #2d2d2d; /* Fondo para el área de opciones */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-bottom: 2rem; /* Espacio abajo para separar del carrusel */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega sombra para profundidad */
+    flex-wrap: wrap; /* Permite que las opciones se envuelvan si es necesario */
+}
+
+.option-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem 1.5rem; /* Ajusta el padding para hacer cada opción más compacta */
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.option-item:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Efecto de aumento en el hover */
+}
+
+.dashboard-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 9rem;
+    padding-top: 5rem; /* Ajusta el padding-top para dejar espacio para el header fijo */
+    background-color: #f4f4f400;
+    width: 100%;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: absolute; /* Posiciona el carrusel de forma absoluta */
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Ajusta el ancho del carrusel */
+    max-height: 60%; /* Ajusta la altura máxima del carrusel */
+    overflow: hidden;
+}
+
+.carousel-image {
+    width: 100%; /* Asegura que las imágenes ocupen todo el ancho disponible del contenedor */
+    height: auto;
+    max-height: 100%; /* Asegura que las imágenes no se salgan del contenedor en altura */
+    object-fit: cover; /* Ajusta la imagen para que cubra el contenedor sin distorsionarse */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
