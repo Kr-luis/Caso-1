@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Mensaje from '../components/Alertas.jsx';
+import { FaArrowLeft } from 'react-icons/fa'; // Importa el ícono de flecha
+import Swal from 'sweetalert2'; // Importa SweetAlert2
 import '../styles/Registrar.css';
-import { FaEye, FaEyeSlash, FaArrowLeft } from 'react-icons/fa'; // Importamos el ícono de flecha
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Importamos los íconos de ojo
 
 export const Registrar = () => {
-    const [mensaje, setMensaje] = useState({});
     const [form, setForm] = useState({
         email: "",
         password: "",
@@ -35,11 +35,29 @@ export const Registrar = () => {
 
         // Validación básica
         if (form.password !== form.confirmPassword) {
-            setMensaje({ respuesta: 'Las contraseñas no coinciden', tipo: false });
+            Swal.fire({
+                title: 'Error',
+                text: 'Las contraseñas no coinciden',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                customClass: {
+                    title: 'custom-title',
+                    content: 'custom-content'
+                }
+            });
             return;
         }
         if (form.password.length < 8) {
-            setMensaje({ respuesta: 'La contraseña debe tener al menos 8 caracteres', tipo: false });
+            Swal.fire({
+                title: 'Error',
+                text: 'La contraseña debe tener al menos 8 caracteres',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                customClass: {
+                    title: 'custom-title',
+                    content: 'custom-content'
+                }
+            });
             return;
         }
 
@@ -49,78 +67,101 @@ export const Registrar = () => {
                 email: form.email,
                 password: form.password,
             });
-            setMensaje({ respuesta: respuesta.data.msg, tipo: true });
+
+            Swal.fire({
+                title: 'Éxito',
+                text: respuesta.data.msg,
+                icon: 'success',
+                confirmButtonText: 'OK',
+                customClass: {
+                    title: 'custom-title',
+                    content: 'custom-content'
+                }
+            }).then(() => {
+                // Redirige al usuario después del registro exitoso, si es necesario
+                // Puedes redirigir a otra página aquí si lo deseas
+            });
+
             setForm({
                 email: "",
                 password: "",
                 confirmPassword: ""
             });
         } catch (error) {
-            setMensaje({ respuesta: error.response?.data?.msg || 'Error desconocido', tipo: false });
+            Swal.fire({
+                title: 'Error',
+                text: error.response?.data?.msg || 'Error desconocido',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                customClass: {
+                    title: 'custom-title',
+                    content: 'custom-content'
+                }
+            });
         }
     };
 
     return (
         <div className="login-page">
-            <Link to="/ingresar" className="back-arrow">
-                <FaArrowLeft />
-            </Link>
             <div className="login-container">
-                <h2>REGISTRO AL SISTEMA</h2>
-                <p>Ingresa tus datos para registrarte</p>
-                {Object.keys(mensaje).length > 0 && <Mensaje tipo={mensaje.tipo}>{mensaje.respuesta}</Mensaje>}
-                <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="email">Correo Electrónico:</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={form.email}
-                            onChange={handleChange}
-                            placeholder="Ingresa tu email"
-                            required
-                        />
+                <div className="login-box">
+                    <div className="welcome-section">
+                        <h1>Registro al Sistema</h1>
                     </div>
-                    <div className="form-group password-group">
-                        <label htmlFor="password">Contraseña:</label>
-                        <div className="password-input">
-                            <input
-                                type={showPassword ? "text" : "password"}
-                                id="password"
-                                name="password"
-                                value={form.password}
-                                onChange={handleChange}
-                                placeholder="* * * * * * * *"
-                                required
-                            />
-                            <span onClick={toggleShowPassword}>
-                                {showPassword ? <FaEyeSlash /> : <FaEye />}
-                            </span>
+                    <div className="form-section">
+                        <form onSubmit={handleSubmit}>
+                            <div className="input-group">
+                                <label>Correo Electrónico</label>
+                                <input 
+                                    type="email" 
+                                    placeholder="Ingresa tu Correo Electrónico" 
+                                    name='email'
+                                    value={form.email || ""} 
+                                    onChange={handleChange}
+                                />
+                            </div>
+                            <div className="input-group password-group">
+                                <label>Contraseña</label>
+                                <div className="password-input">
+                                    <input 
+                                        type={showPassword ? "text" : "password"} 
+                                        placeholder="* * * * * * * *" 
+                                        name='password'
+                                        value={form.password || ""} 
+                                        onChange={handleChange}
+                                    />
+                                    <span onClick={toggleShowPassword}>
+                                        {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="input-group password-group">
+                                <label>Repetir Contraseña</label>
+                                <div className="password-input">
+                                    <input 
+                                        type={showConfirmPassword ? "text" : "password"} 
+                                        placeholder="* * * * * * * *" 
+                                        name='confirmPassword'
+                                        value={form.confirmPassword || ""} 
+                                        onChange={handleChange}
+                                    />
+                                    <span onClick={toggleShowConfirmPassword}>
+                                        {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                                    </span>
+                                </div>
+                            </div>
+                            <button className="submit-button">Registrar</button>
+                        </form>
+                        <div className="signup-link">
+                            <p>¿Ya tienes una cuenta?</p>
+                            <Link to="/ingresar">Ingresar</Link>
                         </div>
                     </div>
-                    <div className="form-group password-group">
-                        <label htmlFor="confirmPassword">Repetir Contraseña:</label>
-                        <div className="password-input">
-                            <input
-                                type={showConfirmPassword ? "text" : "password"}
-                                id="confirmPassword"
-                                name="confirmPassword"
-                                value={form.confirmPassword}
-                                onChange={handleChange}
-                                placeholder="* * * * * * * *"
-                                required
-                            />
-                            <span onClick={toggleShowConfirmPassword}>
-                                {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-                            </span>
-                        </div>
-                    </div>
-                    <button type="submit" className="button">Registrar</button>
-                </form>
-                <div className="signup-link">
-                    <p>¿Ya tienes una cuenta?</p>
-                    <Link to="/ingresar">Ingresar</Link>
+                </div>
+                <div className="home-icon">
+                    <Link to="/"> 
+                        <FaArrowLeft className="back-arrow" /> {/* Aquí se usa el ícono de flecha */}
+                    </Link>
                 </div>
             </div>
         </div>
