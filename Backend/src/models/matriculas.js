@@ -11,14 +11,12 @@ const MatriculaSchema = new Schema({
         require:true,
         maxlength:50
     },
-    id_estudiante:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"Estudiante"
-    },
-    id_materias:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"Materia"
-    }]
+    estudiante: {
+        type: Object,
+        required: true },
+    materias: {
+        type: [Object],
+        required: true },
 },{
     timestamps:true
 })

@@ -2,32 +2,56 @@ import Matriculas from "../models/matriculas.js"
 import Estudiantes from "../models/estudiantes.js"
 import Materias from "../models/materias.js"
 import mongoose from "mongoose"
-const CrearMatricula = async (req,res) =>{
-    const {codigo, descripcion, id_estudiante, id_materias} = req.body
+const CrearMatricula = async (req, res) => {
+    try {
+        const { codigo, descripcion, id_estudiante, id_materias } = req.body;
 
-    if(Object.values(req.body).includes("")) return res.status(400).json({msg:"Debes de llenar los campos obligatorios"})
+        if (Object.values(req.body).includes("")) 
+            return res.status(400).json({ msg: "Debes de llenar los campos obligatorios" });
 
-    const verificarCodigo = await Matriculas.findOne({codigo})
-    if(verificarCodigo) return res.status(400).json({msg:"Lo sentimos, el codigo ingresado ya esta en uso"})
+        const verificarCodigo = await Matriculas.findOne({ codigo });
+        if (verificarCodigo) 
+            return res.status(400).json({ msg: "Lo sentimos, el codigo ingresado ya esta en uso" });
 
-    const permitidoCodigo = /^[A-Z0-9]+$/;
-    if(!permitidoCodigo.test(codigo)) return res.status(400).json({msg:"El codigo solo puedo contener mayusculas y numeros"})
-    
-    const Verificarestudiante = await Estudiantes.findById(id_estudiante)
-    if(!Verificarestudiante) return res.status(400).json({msg:"No se encontro al estudiante"})
+        const permitidoCodigo = /^[A-Z0-9]+$/;
+        if (!permitidoCodigo.test(codigo)) 
+            return res.status(400).json({ msg: "El codigo solo puedo contener mayusculas y numeros" });
 
-    for (let id of id_materias) {
-        const Verificarmateria = await Materias.findOne({ _id: id });
-        if (!Verificarmateria) {
-            return res.status(400).json({ msg: `No se encontró la materia con id: ${id}` });
+        const Verificarestudiante = await Estudiantes.findById(id_estudiante);
+        if (!Verificarestudiante) 
+            return res.status(400).json({ msg: "No se encontró al estudiante" });
+
+        console.log("Estudiante encontrado:", Verificarestudiante); // Verificar que el estudiante tiene datos
+
+        const materiasCompletas = [];
+        for (let id of id_materias) {
+            const Verificarmateria = await Materias.findById(id);
+            if (!Verificarmateria) {
+                return res.status(400).json({ msg: `No se encontró la materia con id: ${id}` });
+            }
+            console.log("Materia encontrada:", Verificarmateria); // Verificar que cada materia tiene datos
+            materiasCompletas.push(Verificarmateria);
         }
+
+        console.log("Materias completas:", materiasCompletas); // Verificar que el array no está vacío
+
+        // Reemplazar los IDs con la información completa
+        const nuevaMatricula = new Matriculas({
+            codigo,
+            descripcion,
+            estudiante: Verificarestudiante,  // Aquí se guarda la información completa del estudiante
+            materias: materiasCompletas       // Aquí se guarda la información completa de las materias
+        });
+
+        await nuevaMatricula.save();
+
+        res.status(200).json({ msg: "La matrícula fue creada con éxito" });
+    } catch (error) {
+        console.error("Error al crear la matrícula:", error);
+        res.status(500).json({ msg: "Error interno del servidor" });
     }
+};
 
-    const nuevaMatricula = new Matriculas(req.body);
-    await nuevaMatricula.save();
-
-    res.status(200).json({ msg: "La matrícula fue creada con éxito" });
-}
 
 const VerMatricula = async (req,res) =>{
     try{
