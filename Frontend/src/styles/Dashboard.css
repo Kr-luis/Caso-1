@@ -8,18 +8,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: -20px -10px;
+    padding: 0 10px;
     background-color: #0b0b0b00;
-    color: #050505;
+    color: #ffffff; /* Cambia el color del texto a blanco */
     width: 100%;
-    position: fixed; /* Fija el header en la parte superior */
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000; /* Asegura que el header esté encima del contenido */
+    z-index: 1000;
 }
 
 .back-arrow {
-    color: #fff;
+    color: #ffffff;
     font-size: 1.5rem;
     text-decoration: none;
 }
@@ -37,79 +37,114 @@
 }
 
 .nav-link {
-    color: #fff;
+    color: #ffffff; /* Cambia el color del texto a blanco */
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #007bff00;
     transition: background-color 0.3s;
 }
 
 .nav-link:hover {
-    background-color: #0056b3;
+    background-color: #0a6ad08b;
 }
 
 .dashboard-options {
     display: flex;
-    justify-content: center; /* Centra las opciones horizontalmente */
-    gap: 1rem; /* Espacio entre las opciones */
-    width: 100%; /* Asegura que las opciones ocupen todo el ancho disponible */
-    max-width: 1200px; /* Ajusta el ancho máximo si es necesario */
-    padding: 0.5rem; /* Ajusta el padding interno para hacer el área más compacta */
-    background-color: #2d2d2d; /* Fondo para el área de opciones */
-    border-radius: 10px; /* Bordes redondeados */
-    margin-bottom: 2rem; /* Espacio abajo para separar del carrusel */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega sombra para profundidad */
-    flex-wrap: wrap; /* Permite que las opciones se envuelvan si es necesario */
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0.5rem;
+    background-color: #2d2d2d;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap;
 }
 
 .option-item {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.75rem 1.5rem; /* Ajusta el padding para hacer cada opción más compacta */
+    padding: 0.75rem 1.5rem;
     background-color: #007bff;
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.2s;
 }
 
 .option-item:hover {
-    background-color: #0056b3;
-    transform: scale(1.05); /* Efecto de aumento en el hover */
+    background-color: #0057b3;
+    transform: scale(1.05);
 }
 
 .dashboard-main {
     flex: 1;
     display: flex;
     align-items: center;
-    padding: 9rem;
-    padding-top: 5rem; /* Ajusta el padding-top para dejar espacio para el header fijo */
+    flex-direction: column;
+    padding: 9rem 0;
+    padding-top: 6rem;
     background-color: #f4f4f400;
     width: 100%;
     position: relative;
+}
+
+.welcome-message {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    color: #ffffff; /* Cambia el color del texto a blanco */
 }
 
 .carousel {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
-    position: absolute; /* Posiciona el carrusel de forma absoluta */
-    top: 50%;
-    left: 30%;
-    transform: translate(-50%, -50%);
-    width: 80%; /* Ajusta el ancho del carrusel */
-    max-height: 60%; /* Ajusta la altura máxima del carrusel */
+    width: 100%; /* Ancho completo para mejor integración */
+    max-height: 400px; /* Ajusta la altura máxima del carrusel */
     overflow: hidden;
 }
 
 .carousel-image {
-    width: 100%; /* Asegura que las imágenes ocupen todo el ancho disponible del contenedor */
-    height: auto;
-    max-height: 100%; /* Asegura que las imágenes no se salgan del contenedor en altura */
-    object-fit: cover; /* Ajusta la imagen para que cubra el contenedor sin distorsionarse */
+    width: auto; /* Ajusta el ancho para que las imágenes se ajusten correctamente */
+    max-height: 400px; /* Mantiene la altura máxima dentro del carrusel */
+    object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(2, 2, 2, 0.2);
+}
+
+.logout-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff4d4d;
+    border: none;
+    border-radius: 50%;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 1000;
+}
+
+.logout-button:hover {
+    background-color: #e63939;
+}
+
+.logout-icon {
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.user-welcome {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-left: auto;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }

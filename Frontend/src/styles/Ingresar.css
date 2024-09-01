@@ -11,7 +11,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(120deg, #1e3a8a, #e11d48);
+    background: url('../assets/fondo.avif') no-repeat center center fixed; /* Ajusta la ruta según corresponda */
+    background-size: cover;
     font-family: Arial, sans-serif;
 }
 
@@ -34,10 +35,10 @@ body {
 }
 
 .login-box {
-    background-color: rgba(0, 0, 0, 0); /* Fondo negro con transparencia */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con transparencia */
     padding: 1rem;
     border-radius: 1rem;
-    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
     max-width: 400px;
     width: 100%;
     display: flex;
@@ -70,8 +71,8 @@ body {
 }
 
 .input-group input {
-    width: 100%;
-    padding: 0.65rem;
+    width: 96%;
+    padding: 0.45rem;
     border-radius: 0.5rem;
     border: 1px solid #444444;
     background-color: #222222;
@@ -82,23 +83,6 @@ body {
 
 .input-group input:focus {
     border-color: #7c3aed;
-}
-
-/* Estilos para mostrar/ocultar la contraseña */
-.password-group .password-input {
-    display: flex;
-    align-items: center;
-}
-
-.password-group .password-input input {
-    flex: 1;
-    padding-right: 40px; /* Espacio para el ícono */
-}
-
-.password-group .password-input span {
-    margin-left: -30px; /* Posiciona el ícono dentro del input */
-    cursor: pointer;
-    color: #cbd5e0;
 }
 
 .submit-button {
@@ -161,6 +145,7 @@ body {
 .back-arrow:hover {
     color: #cccccc;
 }
+
 .mensaje-container {
     position: absolute;
     top: 1rem;
@@ -189,6 +174,7 @@ body {
     margin: 0;
     font-size: 1rem;
 }
+
 /* Estilo personalizado para SweetAlert2 */
 .custom-title {
     font-size: 1.2rem; /* Tamaño del título */
@@ -196,4 +182,21 @@ body {
 
 .custom-content {
     font-size: 0.9rem; /* Tamaño del contenido */
+}
+.password-group .password-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-group .password-input input {
+    flex: 1;
+    padding-right: 2rem; /* Espacio para el ícono */
+}
+
+.password-group .password-input span {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #cbd5e0;
 }
