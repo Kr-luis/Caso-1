@@ -13,6 +13,9 @@ const CrearMatricula = async (req, res) => {
         if (verificarCodigo) 
             return res.status(400).json({ msg: "Lo sentimos, el codigo ingresado ya esta en uso" });
 
+        const VerificarEstudiante = await Estudiantes.findOne({id_estudiante});
+        if(VerificarEstudiante) return res.status(400).json({msg:"Ya existe un estudiante registrado con esa id"});
+
         const permitidoCodigo = /^[A-Z0-9]+$/;
         if (!permitidoCodigo.test(codigo)) 
             return res.status(400).json({ msg: "El codigo solo puedo contener mayusculas y numeros" });
