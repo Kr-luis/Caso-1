@@ -17,7 +17,7 @@
     border: none;
     cursor: pointer;
     font-size: 24px;
-    color: #333;
+    color: #ffffff;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -88,4 +88,8 @@
 .mensaje {
     color: red;
     margin-bottom: 15px;
+}
+
+.fila-seleccionada {
+    background-color: #55ebffbb;
 }

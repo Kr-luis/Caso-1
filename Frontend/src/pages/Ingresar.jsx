@@ -33,8 +33,8 @@ const Ingresar = () => {
             const { data } = await axios.post(url, form);
             localStorage.setItem('id_usuario', data._id);
             localStorage.setItem('email', data.email);
-            localStorage.setItem('token', data.token);
             localStorage.setItem('nombre', data.nombre);
+            localStorage.setItem('apellido', data.apellido);
             setAuth(data);
 
             Swal.fire({

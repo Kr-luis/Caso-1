@@ -36,7 +36,7 @@ function App() {
             <Route path="dashboard/estudiantes" element={<CreateEstudiante />} />
             <Route path="estudiante/editar/:id" element={<EditEstudiante />} />
             <Route path="estudiantes/detalle/:id" element={<DetailEstudiante />} />
-            <Route path="estudiantes" element={<ListEstudiantes />} /> 
+            <Route path="/estudiantes" element={<ListEstudiantes />} /> 
             <Route path="dashboard/matriculas" element={<CreateMatricula />} />
             <Route path="matricula/editar/:id" element={<EditMatricula />} />
             <Route path="matricula/detalle/:id" element={<DetailMatricula />} />

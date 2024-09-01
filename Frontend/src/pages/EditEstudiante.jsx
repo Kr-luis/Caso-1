@@ -53,6 +53,10 @@ const EditEstudiante = () => {
         navigate(-1); // Regresa a la página anterior
     };
 
+    const handleVerEstudiantes = () => {
+        navigate(-1); // Regresa a la página anterior
+    };
+
     return (
         <div className="contenedor-estudiantes">
             <button className="btn-regresar" onClick={handleBack}>
@@ -136,7 +140,7 @@ const EditEstudiante = () => {
                 </div>
                 <div className="botones">
                     <button type="submit" className="boton">Actualizar Estudiante</button>
-                    <a href="/estudiantes" className="boton-secundario">Ver Estudiantes</a>
+                    <button type="button" onClick={handleVerEstudiantes} className="boton-secundario">Ver Estudiantes</button>
                 </div>
             </form>
         </div>
