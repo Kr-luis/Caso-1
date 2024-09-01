@@ -103,8 +103,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%; /* Ancho completo para mejor integración */
-    max-height: 400px; /* Ajusta la altura máxima del carrusel */
+    width: 50%; /* Ancho completo para mejor integración */
+    max-height: 800px; /* Ajusta la altura máxima del carrusel */
     overflow: hidden;
 }
 
@@ -148,3 +148,12 @@
     align-items: center;
     gap: 0.5rem;
 }
+.welcome-message {
+    text-align: left; /* Alinea el texto a la izquierda */
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    color: #ffffff; /* Cambia el color del texto a blanco */
+    margin-left: 0; /* Alinea el mensaje hacia el margen izquierdo */
+    padding-left: 20px; /* Añade un poco de padding a la izquierda para separación */
+}
+

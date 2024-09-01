@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { FiArrowLeft } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Materias.css';
 
@@ -31,19 +30,13 @@ const Materias = () => {
     setCreditos('');
   };
 
-  const handleBack = () => {
-    navigate(-1); // Regresa a la página anterior
-  };
-
   const handleVerMaterias = () => {
     navigate('/materias-registradas'); // Navega a la página de materias registradas
   };
 
   return (
     <div className="contenedor-materias">
-      <button className="btn-regresar" onClick={handleBack}>
-        <FiArrowLeft className="icono-flecha" />
-      </button>
+      {/* Botón de regresar removido */}
       <h2 className="titulo">Registrar Materia</h2>
       {mensaje && <p className="mensaje">{mensaje}</p>}
       <form onSubmit={crearMateria} className="formulario">

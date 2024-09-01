@@ -1,5 +1,6 @@
 .contenedor-materias {
     padding: 2rem;
+    color: #cccccc;
   }
   
   .titulo {
@@ -117,31 +118,6 @@
   
   .boton-eliminar:hover {
     background-color: #dc2626;
-  }
-  .btn-regresar {
-    background: none;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-  }
-  
-  .icono-flecha {
-    font-size: 35px;
-    color: #ffffff;
-  }
-  
-  .icono-flecha:hover {
-    color: #ffffff;
-  }
-  
-  .contenedor-materias {
-    padding-top: 60px; /* Para evitar que el contenido se superponga con la flecha */
-    position: relative;
   }
   .botones {
     display: flex;

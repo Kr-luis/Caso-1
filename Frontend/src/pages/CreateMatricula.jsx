@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi';
 import '../styles/Matriculas.css';
 
 const CreateMatricula = () => {
@@ -35,16 +34,8 @@ const CreateMatricula = () => {
         navigate('/matriculas'); // Navega a la página de matrículas registradas
     };
 
-    const handleBack = () => {
-        navigate(-1); // Regresa a la página anterior
-    };
-
     return (
         <div className="contenedor-matriculas">
-            <button className="btn-regresar" onClick={handleBack}>
-                <FiArrowLeft className="icono-flecha" />
-                Regresar
-            </button>
             <h2 className="titulo">Registrar Matrícula</h2>
             {mensaje && <p className="mensaje">{mensaje}</p>}
             <form onSubmit={crearMatricula} className="formulario">

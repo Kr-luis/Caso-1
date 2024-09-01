@@ -1,6 +1,7 @@
 /* General container style for matriculas pages */
 .contenedor-matriculas {
     padding: 20px;
+    color: #ddd;
 }
 
 .titulo {
@@ -8,6 +9,7 @@
     margin-bottom: 20px;
     display: flex;
     align-items: center;
+    color: #ddd;
 }
 
 .btn-regresar {

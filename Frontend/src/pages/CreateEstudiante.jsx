@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi';
 import '../styles/Estudiantes.css';
 
 const CreateEstudiante = () => {
@@ -15,7 +14,6 @@ const CreateEstudiante = () => {
   const [email, setEmail] = useState('');
   const [mensaje, setMensaje] = useState('');
   const navigate = useNavigate();
-
 
   const crearEstudiante = async (e) => {
     e.preventDefault();
@@ -40,20 +38,12 @@ const CreateEstudiante = () => {
     setEmail('');
   };
 
-  const handleBack = () => {
-    navigate(-1); // Regresa a la página anterior
-  };
-
   const handleVerEstudiantes = () => {
     navigate('/estudiantes'); // Navega a la página de estudiantes registrados
   };
 
   return (
     <div className="contenedor-estudiantes">
-      <button className="btn-regresar" onClick={handleBack}>
-        <FiArrowLeft className="icono-flecha" />
-        Regresar
-      </button>
       <h2 className="titulo">Registrar Estudiante</h2>
       {mensaje && <p className="mensaje">{mensaje}</p>}
       <form onSubmit={crearEstudiante} className="formulario">

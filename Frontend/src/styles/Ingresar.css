@@ -5,14 +5,16 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background: url('../assets/fondo.avif') no-repeat center center fixed; /* Ajusta la ruta según corresponda */
+    background-size: cover;
 }
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url('../assets/fondo.avif') no-repeat center center fixed; /* Ajusta la ruta según corresponda */
-    background-size: cover;
+    height: 100vh; /* Asegura que el fondo ocupe toda la ventana */
     font-family: Arial, sans-serif;
 }
 
@@ -23,6 +25,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    background: inherit; /* Hereda el fondo para asegurarse de que cubra todo */
 }
 
 .login-container {
@@ -31,6 +34,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100%; /* Asegura que el contenedor llene la pantalla */
     z-index: 10; /* Asegura que el contenido esté por encima del fondo */
 }
 
@@ -183,6 +187,7 @@ body {
 .custom-content {
     font-size: 0.9rem; /* Tamaño del contenido */
 }
+
 .password-group .password-input {
     position: relative;
     display: flex;
