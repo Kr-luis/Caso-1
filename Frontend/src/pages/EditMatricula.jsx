@@ -43,7 +43,7 @@ const EditMatricula = () => {
             const matriculaActualizada = { codigo, descripcion, id_estudiante: idEstudiante, id_materias: idMaterias };
             await axios.put(`${import.meta.env.VITE_BACKEND_URL}/caso1/matriculas/actualizar/${id}`, matriculaActualizada);
             Swal.fire('Éxito', 'Matrícula actualizada con éxito', 'success');
-            navigate('/materias-registradas'); // Redirigir a la página de materias registradas
+            navigate(-1); // Regresa a la página anterior
         } catch (error) {
             Swal.fire('Error', 'Error al actualizar la matrícula', 'error');
         }
