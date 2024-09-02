@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'; // Importar SweetAlert2
 import '../styles/Materias.css';
 
 const Materias = () => {
@@ -8,7 +9,6 @@ const Materias = () => {
   const [codigo, setCodigo] = useState('');
   const [descripcion, setDescripcion] = useState('');
   const [creditos, setCreditos] = useState('');
-  const [mensaje, setMensaje] = useState('');
   const navigate = useNavigate();
 
   const crearMateria = async (e) => {
@@ -16,10 +16,10 @@ const Materias = () => {
     try {
       const nuevaMateria = { nombre, codigo, descripcion, creditos };
       await axios.post(`${import.meta.env.VITE_BACKEND_URL}/caso1/materias/crear`, nuevaMateria);
-      setMensaje('Materia creada con éxito');
+      Swal.fire('Éxito', 'Materia creada con éxito', 'success');
       limpiarFormulario();
     } catch (error) {
-      setMensaje('Error al crear la materia');
+      Swal.fire('Error', 'Error al crear la materia', 'error');
     }
   };
 
@@ -36,9 +36,7 @@ const Materias = () => {
 
   return (
     <div className="contenedor-materias">
-      {/* Botón de regresar removido */}
       <h2 className="titulo">Registrar Materia</h2>
-      {mensaje && <p className="mensaje">{mensaje}</p>}
       <form onSubmit={crearMateria} className="formulario">
         <div className="campo">
           <label className="label">Nombre</label>

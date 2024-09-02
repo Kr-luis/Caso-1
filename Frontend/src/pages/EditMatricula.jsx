@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2'; // Importar SweetAlert2
 import { FiArrowLeft } from 'react-icons/fi';
 import '../styles/Matriculas.css';
 
@@ -24,6 +25,7 @@ const EditMatricula = () => {
                 setIdMaterias(matricula.id_materias);
             } catch (error) {
                 console.error('Error al obtener la matrícula', error);
+                Swal.fire('Error', 'No se pudo obtener la matrícula', 'error');
             }
         };
 
@@ -32,12 +34,18 @@ const EditMatricula = () => {
 
     const actualizarMatricula = async (e) => {
         e.preventDefault();
+        if (!codigo || !descripcion || !idEstudiante || idMaterias.length === 0) {
+            Swal.fire('Advertencia', 'Por favor, complete todos los campos.', 'warning');
+            return;
+        }
+
         try {
-            const matriculaActualizada = { codigo, descripcion, id_estudiante: idEstudiante, id_materias };
+            const matriculaActualizada = { codigo, descripcion, id_estudiante: idEstudiante, id_materias: idMaterias };
             await axios.put(`${import.meta.env.VITE_BACKEND_URL}/caso1/matriculas/actualizar/${id}`, matriculaActualizada);
-            setMensaje('Matrícula actualizada con éxito');
+            Swal.fire('Éxito', 'Matrícula actualizada con éxito', 'success');
+            navigate('/materias-registradas'); // Redirigir a la página de materias registradas
         } catch (error) {
-            setMensaje('Error al actualizar la matrícula');
+            Swal.fire('Error', 'Error al actualizar la matrícula', 'error');
         }
     };
 

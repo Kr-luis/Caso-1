@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
+import Swal from 'sweetalert2';
 import '../styles/Estudiantes.css';
 
 const EditEstudiante = () => {
@@ -13,7 +14,6 @@ const EditEstudiante = () => {
     const [direccion, setDireccion] = useState('');
     const [telefono, setTelefono] = useState('');
     const [email, setEmail] = useState('');
-    const [mensaje, setMensaje] = useState('');
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -43,17 +43,23 @@ const EditEstudiante = () => {
         try {
             const estudianteActualizado = { nombre, apellido, cedula, fecha_nacimiento: fechaNacimiento, ciudad, direccion, telefono, email };
             await axios.put(`${import.meta.env.VITE_BACKEND_URL}/caso1/estudiante/actualizar/${id}`, estudianteActualizado);
-            setMensaje('Estudiante actualizado con éxito');
+            Swal.fire({
+                icon: 'success',
+                title: 'Actualización exitosa',
+                text: 'Estudiante actualizado con éxito',
+            }).then(() => {
+                navigate(-1); // Regresa a la página anterior
+            });
         } catch (error) {
-            setMensaje('Error al actualizar el estudiante');
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Error al actualizar el estudiante',
+            });
         }
     };
 
     const handleBack = () => {
-        navigate(-1); // Regresa a la página anterior
-    };
-
-    const handleVerEstudiantes = () => {
         navigate(-1); // Regresa a la página anterior
     };
 
@@ -64,7 +70,6 @@ const EditEstudiante = () => {
                 Regresar
             </button>
             <h2 className="titulo">Editar Estudiante</h2>
-            {mensaje && <p className="mensaje">{mensaje}</p>}
             <form onSubmit={actualizarEstudiante} className="formulario">
                 <div className="campo-group">
                     <label className="label">Nombre</label>
@@ -140,7 +145,7 @@ const EditEstudiante = () => {
                 </div>
                 <div className="botones">
                     <button type="submit" className="boton">Actualizar Estudiante</button>
-                    <button type="button" onClick={handleVerEstudiantes} className="boton-secundario">Ver Estudiantes</button>
+                    <button type="button" onClick={handleBack} className="boton-secundario">Ver Estudiantes</button>
                 </div>
             </form>
         </div>

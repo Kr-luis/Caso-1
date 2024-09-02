@@ -189,4 +189,18 @@
   .icono-flecha {
     vertical-align: middle;
   }
-  
+  .logout-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.logout-icon {
+    font-size: 24px;
+}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { FaArrowLeft, FaSignOutAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { FaSignOutAlt } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Dashboard.css';
 import Materias from '../pages/Materias';
@@ -56,9 +56,6 @@ const Dashboard = () => {
     return (
         <div className="dashboard-container">
             <header className="dashboard-header">
-                <Link to="/" className="back-arrow">
-                    <FaArrowLeft />
-                </Link>
                 <h1 className="header-title">SISTEMA GESTOR DE MATRICULAS</h1>
                 <nav className="header-nav">
                     <button onClick={mostrarFormularioMateriasHandler} className="nav-link">Materias</button>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'; // Importar SweetAlert2
 import '../styles/Estudiantes.css';
 
 const CreateEstudiante = () => {
@@ -12,18 +13,55 @@ const CreateEstudiante = () => {
   const [direccion, setDireccion] = useState('');
   const [telefono, setTelefono] = useState('');
   const [email, setEmail] = useState('');
-  const [mensaje, setMensaje] = useState('');
   const navigate = useNavigate();
 
   const crearEstudiante = async (e) => {
     e.preventDefault();
+
+    // Validaciones en el frontend
+    if ([nombre, apellido, cedula, fechaNacimiento, ciudad, direccion, telefono, email].includes('')) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Lo sentimos, debes llenar todos los datos.',
+      });
+      return;
+    }
+
+    const Verificacion_numeros = /^[0-9]+$/;
+    if (!Verificacion_numeros.test(cedula)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Asegúrate de ingresar solo números en la cédula.',
+      });
+      return;
+    }
+
+    if (!Verificacion_numeros.test(telefono)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Asegúrate de ingresar solo números en el teléfono.',
+      });
+      return;
+    }
+
     try {
       const nuevoEstudiante = { nombre, apellido, cedula, fecha_nacimiento: fechaNacimiento, ciudad, direccion, telefono, email };
       await axios.post(`${import.meta.env.VITE_BACKEND_URL}/caso1/estudiante/crear`, nuevoEstudiante);
-      setMensaje('Estudiante creado con éxito');
+      Swal.fire({
+        icon: 'success',
+        title: 'Éxito',
+        text: 'Estudiante creado con éxito.',
+      });
       limpiarFormulario();
     } catch (error) {
-      setMensaje('Error al crear el estudiante');
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Error al crear el estudiante. Verifica los datos ingresados.',
+      });
     }
   };
 
@@ -45,7 +83,6 @@ const CreateEstudiante = () => {
   return (
     <div className="contenedor-estudiantes">
       <h2 className="titulo">Registrar Estudiante</h2>
-      {mensaje && <p className="mensaje">{mensaje}</p>}
       <form onSubmit={crearEstudiante} className="formulario">
         <div className="campo-group">
           <div className="campo">

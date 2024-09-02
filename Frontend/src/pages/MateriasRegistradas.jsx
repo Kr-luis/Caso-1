@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FiArrowLeft } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'; // Importar SweetAlert2
 import '../styles/Materias.css';
 
 const MateriasRegistradas = () => {
@@ -23,12 +24,33 @@ const MateriasRegistradas = () => {
   };
 
   const eliminarMateria = async (id) => {
-    try {
-      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/caso1/materias/eliminar/${id}`);
-      setMensaje('Materia eliminada con éxito');
-      obtenerMaterias();
-    } catch (error) {
-      setMensaje('Error al eliminar la materia');
+    const result = await Swal.fire({
+      title: '¿Estás seguro?',
+      text: "No podrás recuperar esta materia después de eliminarla.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    });
+
+    if (result.isConfirmed) {
+      try {
+        await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/caso1/materias/eliminar/${id}`);
+        Swal.fire(
+          'Eliminado!',
+          'Materia eliminada con éxito.',
+          'success'
+        );
+        obtenerMaterias(); // Actualiza la lista de materias después de eliminar
+      } catch (error) {
+        Swal.fire(
+          'Error!',
+          'Error al eliminar la materia.',
+          'error'
+        );
+      }
     }
   };
 
