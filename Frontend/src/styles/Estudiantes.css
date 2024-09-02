@@ -1,0 +1,206 @@
+.contenedor-estudiantes {
+    padding: 20px;
+    color: #ccc;
+  }
+  
+  .titulo {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .mensaje {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  .formulario {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .campo-group {
+    display: flex;
+    gap: 50px; /* Espacio horizontal entre las columnas */
+    margin-bottom: 15px;
+  }
+  
+  .campo {
+    flex: 1;
+  }
+  
+  .label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .botones {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 20px;
+  }
+  
+  .boton, .boton-secundario {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .boton {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .boton-secundario {
+    background-color: #6c757d;
+    color: #fff;
+  }
+  .contenedor-estudiantes {
+    padding: 20px;
+  }
+  
+  .titulo {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .tabla th, .tabla td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .tabla th {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .tabla tr:nth-child(even) {
+    background-color: #f9f9f900;
+  }
+  
+  .tabla tr:hover {
+    background-color: #e0e0e000; /* Ajusta el color aquí */
+  }
+  
+  .boton-editar, .boton-detalle {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 2px;
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .boton-editar {
+    background-color: #007bff;
+  }
+  
+  .boton-detalle {
+    background-color: #28a745;
+  }
+  .contenedor-estudiantes {
+    padding: 20px;
+  }
+  
+  .titulo {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .mensaje {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  .formulario {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en nuevas líneas si no caben en una sola línea */
+    gap: 20px; /* Espacio horizontal entre las columnas */
+  }
+  
+  .campo-group {
+    flex: 1 1 calc(50% - 20px); /* Ocupa el 50% del ancho disponible menos el espacio del gap */
+    box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el width */
+    margin-bottom: 15px;
+  }
+  
+  .campo {
+    margin-bottom: 15px;
+  }
+  
+  .label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .botones {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 20px;
+  }
+  
+  .boton, .boton-secundario {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .boton {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .boton-secundario {
+    background-color: #6c757d;
+    color: #fff;
+  }
+  
+  .btn-regresar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  .icono-flecha {
+    vertical-align: middle;
+  }
+  .logout-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.logout-icon {
+    font-size: 24px;
+}

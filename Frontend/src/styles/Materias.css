@@ -1,0 +1,141 @@
+.contenedor-materias {
+    padding: 2rem;
+    color: #cccccc;
+  }
+  
+  .titulo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mensaje {
+    color: red;
+    margin-bottom: 1rem;
+  }
+  
+  .formulario {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .campo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .label {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  .input {
+    padding: 0.5rem;
+    border: 1px solid #cccccc;
+    border-radius: 0.25rem;
+  }
+  
+  .boton {
+    padding: 0.75rem 1.5rem;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .boton:hover {
+    background-color: #1e40af;
+  }
+  
+  .boton-cancelar {
+    padding: 0.75rem 1.5rem;
+    background-color: #6b7280;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 1rem;
+  }
+  
+  .boton-cancelar:hover {
+    background-color: #4b5563;
+  }
+  
+  .subtitulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .tabla-encabezado {
+    background-color: #2563eb;
+    color: rgba(255, 255, 255, 0);
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .tabla-celda {
+    padding: 0.75rem;
+    border: 1px solid #cccccc00;
+  }
+  
+  .boton-editar {
+    padding: 0.5rem 1rem;
+    background-color: #f59e0b;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    transition: background-color 0.3s;
+  }
+  
+  .boton-editar:hover {
+    background-color: #d97706;
+  }
+  
+  .boton-eliminar {
+    padding: 0.5rem 1rem;
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .boton-eliminar:hover {
+    background-color: #dc2626;
+  }
+  .botones {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .boton-secundario {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  .boton-secundario:hover {
+    background-color: #5a6268;
+  }
+  

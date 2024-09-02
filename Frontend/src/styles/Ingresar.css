@@ -1,0 +1,207 @@
+/* Ingresar.css */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: url('../assets/fondo.avif') no-repeat center center fixed; /* Ajusta la ruta según corresponda */
+    background-size: cover;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Asegura que el fondo ocupe toda la ventana */
+    font-family: Arial, sans-serif;
+}
+
+.login-page {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: inherit; /* Hereda el fondo para asegurarse de que cubra todo */
+}
+
+.login-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%; /* Asegura que el contenedor llene la pantalla */
+    z-index: 10; /* Asegura que el contenido esté por encima del fondo */
+}
+
+.login-box {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con transparencia */
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.welcome-section h1 {
+    font-size: 2rem;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form-section {
+    width: 100%;
+    max-width: 350px;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    display: block;
+    font-size: 1rem;
+    color: #cccccc;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input {
+    width: 96%;
+    padding: 0.45rem;
+    border-radius: 0.5rem;
+    border: 1px solid #444444;
+    background-color: #222222;
+    color: #ffffff;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #7c3aed;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #7c3aed;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #6b21a8;
+}
+
+.forgot-password, .signup {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.forgot-password a, .signup a {
+    color: #a3a3a3;
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
+.signup p {
+    margin-bottom: 0.5rem;
+    color: #a3a3a3;
+    font-size: 0.9rem;
+}
+
+.signup a {
+    background-color: #7c3aed;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.signup a:hover {
+    background-color: #6b21a8;
+}
+
+.home-icon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.back-arrow {
+    font-size: 2rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.back-arrow:hover {
+    color: #cccccc;
+}
+
+.mensaje-container {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 90%;
+    min-width: 300px; /* Tamaño mínimo aceptable */
+    background-color: #333; /* Fondo oscuro para el mensaje */
+    color: #fff; /* Texto blanco para contraste */
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 20; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.mensaje-container.success {
+    background-color: #4caf50; /* Color verde para éxito */
+}
+
+.mensaje-container.error {
+    background-color: #f44336; /* Color rojo para error */
+}
+
+.mensaje-container p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Estilo personalizado para SweetAlert2 */
+.custom-title {
+    font-size: 1.2rem; /* Tamaño del título */
+}
+
+.custom-content {
+    font-size: 0.9rem; /* Tamaño del contenido */
+}
+
+.password-group .password-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-group .password-input input {
+    flex: 1;
+    padding-right: 2rem; /* Espacio para el ícono */
+}
+
+.password-group .password-input span {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #cbd5e0;
+}

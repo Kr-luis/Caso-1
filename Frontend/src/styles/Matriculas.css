@@ -1,0 +1,95 @@
+/* General container style for matriculas pages */
+.contenedor-matriculas {
+    padding: 20px;
+    color: #ddd;
+}
+
+.titulo {
+    font-size: 24px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    color: #ddd;
+}
+
+.btn-regresar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.icono-flecha {
+    margin-right: 8px;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla th, .tabla td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.tabla th {
+    background-color: #f4f4f4;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo-group {
+    margin-bottom: 15px;
+}
+
+.label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.botones {
+    display: flex;
+    justify-content: space-between;
+}
+
+.boton, .boton-secundario {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.boton {
+    background-color: #007bff;
+    color: white;
+}
+
+.boton-secundario {
+    background-color: #6c757d;
+    color: white;
+}
+
+.mensaje {
+    color: red;
+    margin-bottom: 15px;
+}
+
+.fila-seleccionada {
+    background-color: #55ebffbb;
+}

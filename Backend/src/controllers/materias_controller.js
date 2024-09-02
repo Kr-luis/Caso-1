@@ -65,6 +65,7 @@ const EliminarMateria = async (req,res) => {
     res.status(200).json({msg:"La materia se elimino correctamente"})
 }
 
+
 export{
     CrearMateria,
     VerMaterias,

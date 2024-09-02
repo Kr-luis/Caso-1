@@ -1,0 +1,159 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background-color: #0b0b0b00;
+    color: #ffffff; /* Cambia el color del texto a blanco */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.back-arrow {
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.header-title {
+    flex: 1;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: #ffffff; /* Cambia el color del texto a blanco */
+    text-decoration: none;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    background-color: #007bff00;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #0a6ad08b;
+}
+
+.dashboard-options {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0.5rem;
+    background-color: #2d2d2d;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap;
+}
+
+.option-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.option-item:hover {
+    background-color: #0057b3;
+    transform: scale(1.05);
+}
+
+.dashboard-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 9rem 0;
+    padding-top: 6rem;
+    background-color: #f4f4f400;
+    width: 100%;
+    position: relative;
+}
+
+.welcome-message {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    color: #ffffff; /* Cambia el color del texto a blanco */
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%; /* Ancho completo para mejor integración */
+    max-height: 800px; /* Ajusta la altura máxima del carrusel */
+    overflow: hidden;
+}
+
+.carousel-image {
+    width: auto; /* Ajusta el ancho para que las imágenes se ajusten correctamente */
+    max-height: 400px; /* Mantiene la altura máxima dentro del carrusel */
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(2, 2, 2, 0.2);
+}
+
+.logout-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff4d4d;
+    border: none;
+    border-radius: 50%;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 1000;
+}
+
+.logout-button:hover {
+    background-color: #e63939;
+}
+
+.logout-icon {
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.user-welcome {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-left: auto;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.welcome-message {
+    text-align: left; /* Alinea el texto a la izquierda */
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    color: #ffffff; /* Cambia el color del texto a blanco */
+    margin-left: 0; /* Alinea el mensaje hacia el margen izquierdo */
+    padding-left: 20px; /* Añade un poco de padding a la izquierda para separación */
+}
+
